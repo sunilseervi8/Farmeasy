@@ -1,0 +1,32 @@
+{
+  "Routes": [
+    {
+      //Configuration for account Services
+      "DownstreamPathTemplate": "/api/account/{userId}",
+      "DownstreamSchema": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8000
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/account/{userId}",
+      "UpstreamHttpMethods": [ "Get", "Post", "Put", "Delete" ]
+    },
+
+    {
+      //Configuration for Product Services
+      "DownstreamPathTemplate": "/api/Product/{id}",
+      "DownstreamSchema": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8005
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/Product/{id}",
+      "UpstreamHttpMethods": [ "Get" ]
+    }
+  ]
+
+}
